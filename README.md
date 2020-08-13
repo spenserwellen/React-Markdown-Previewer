@@ -1,2 +1,2 @@
 # React-Markdown-Previewer
-A colorful markdown previewer for React
+A colorful markdown previewer for React.
