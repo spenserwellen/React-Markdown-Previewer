@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+
+/*
+Color Palette
+#FFCFA4 | hsl(28deg, 100%, 82%) | 255, 206, 163 // Beige          used
+#FF947F | hsl(10deg, 100%, 75%) | 255, 148, 127 // Orange         
+#C1264E | hsl(345deg, 67%, 45%) | 193, 38, 78   // Red            
+#523957 | hsl(290deg, 21%, 28%) | 82, 57, 87    // Purple         used
+#392338 | hsl(303deg, 24%, 18%) | 57, 35, 56    // Deep Violet    used
+*/
+
+:root {
+   --serif: "Inknut Antiqua", serif; //inknut antique
+   --sans: "Fjalla One", sans-serif;
+
+   --blue: hsl(345deg, 67%, 45%); // Title Background & Subtitle Text
+   --blue-dark: hsl(303deg, 24%, 18%); // Text color in preview
+   --yellow: hsl(43deg, 93%, 63%); // Title Text & Subtitle Background
+   --white: hsl(28deg, 100%, 82%); // Main Page Background
+   --grey: hsl(290deg, 21%, 28%); // Detail on the LHS of editor and other page accents
+   --modyellow: hsl(10deg, 100%, 79%);
+   --reactcolor: #61DBFB;
+   --reactcolorwarm: #f9cb52;
+   
+   --shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(100, 100, 100, 0.6);
+}
+
+*,
+*::after,
+*::before {
+   padding: 0;
+   margin: 0;
+   box-sizing: inherit;
+}
+
+a:link,
+a:visited {
+   text-decoration: none;
+   color: inherit;
+}
+
+button {
+   border: none;
+   color: inherit;
+   background: none;
+}
+
+img {
+   max-width: 100%;
+}
+
+html {
+   min-height: 100vh;
+   font-size: 62.5%;
+   box-sizing: border-box;
+   font-family: var(--sans);
+}
+
+.App {
+   background-color: var(--grey);
+   height: 100vh;
+
+   display: flex;
+}
+
+.sidebar {
+   height: 8rem;
+   width: 100vw;
+   background-color: var(--blue);
+   -webkit-box-shadow: var(--shadow);
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: stetch;
+   justify-content: space-between;
+   z-index: 99;
+   position: fixed;
+
+   & .logo {
+      width: 5rem;
+      height: 5rem;
+      margin-top: 1.3rem;
+      margin-bottom: auto;
+      margin-right: 2.5rem;
+   }
+
+   & .brand {
+      transform: rotate(0deg);
+      white-space: nowrap;
+      line-height: 8rem;
+      color: var(--yellow);
+      font-size: 2.4rem;
+      letter-spacing: 3px;
+      font-weight: normal;
+      font-family: var(--sans);
+      font-size: 3rem;
+      text-transform: uppercase;
+   }
+}
+
+/*..........FOOTER..........*/
+.bottombar {
+   height: 5rem;
+   width: 100vw;
+   -webkit-box-shadow: var(--shadow);
+   background-color: var(--blue);
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 999;
+   position: fixed;
+   bottom: 0;
+
+   & .logo {
+      width: 5rem;
+      height: 5rem;
+      margin-top: 2rem;
+   }
+
+   & .brand {
+      transform: rotate(0deg);
+      white-space: nowrap;
+      line-height: 8rem;
+      color: var(--yellow);
+      font-size: 2.4rem;
+      letter-spacing: 3px;
+      font-weight: normal;
+      font-family: var(--sans);
+      text-transform: uppercase;
+   }
+}
+
+.bottombar {
+   .container-fluid {
+      justify-content: center;
+      
+   }
+   
+}
+
+#bottombar {
+   color: var(--yellow);
+}
+
+#bottombar a{
+   -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;  
+}
+
+#bottombar a:hover {
+  color: var(--reactcolor);
+  text-decoration: none;
+}
+
+#credits {
+       font-size: 1.4rem;
+       font-weight: 700;    
+      }
+
+#footer {
+  position:absolute;
+  bottom:0;
+  height: 6vh;
+  margin-bottom: 1.5em;
+  color: #131530;
+  padding: 0 50px 0;
+  width:100%;
+  height: 10vh;
+
+}
+#footer small {
+    font-size: 16px;
+  padding-right:50px;
+  font-weight:600;
+}
+#footer small-2 {
+    font-size: 16px;
+  padding-right:50px;
+  font-weight:700;
+}
+
+#footer img {
+  width:14%;
+    height:auto;
+}
+
+
+.text-right {
+    text-align: right !important;
+}
+.text-left {
+    text-align: left !important;
+}
+.text-center {
+    text-align: center !important;
+}
+
+
+/*..........SOCIAL..........*/
+.social-icons {
+  position: absolute;
+  z-index: 999;
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .social-icons {
+  left: 3.5rem;
+    bottom:2rem;
+ }
+}
+.social-icons ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.social-icons ul li {
+  position: relative;
+  display: block;
+  padding: 1rem 0;
+   animation-name: fadeInUp;
+    animation-fill-mode: both;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+  height:100%;
+  opacity:1;
+}
+.social-icons ul a {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+.social-icons ul a  {
+  color: #F95F51;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mc {
+position: absolute;
+    bottom: 0;
+    right: 0;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    z-index: 3;
+}
+
+.mc a {
+  color: var(--yellow);
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+.mc a:hover {
+  color: var(--reactcolor);
+  text-decoration: none;
+}
+.footer-social a {
+  margin-right: 40px;
+  display: inline-block;
+  margin-top: 4px;
+      height: 26px;
+    font-size: 18px; 
+}
+
+
+
+
+
+
+
+
+
+.container {
+   height: 100vh;
+   flex: 1 1 calc(50vw - 4rem);
+   background-color: #fff;
+   position: relative;
+   background-color: var(--white);
+
+   & #editor {
+      width: 95%;
+      height: calc(100vh - 14rem);
+      resize: none;
+      border: none;
+      margin: 10rem 2.5% 0;
+      padding: 2rem 2.5% 4rem;
+      border-left: 0.5rem solid var(--grey);
+      background-color: var(--modyellow);
+      -webkit-box-shadow: var(--shadow);
+   }
+
+   & .label {
+      position: absolute;
+      color: var(--blue);
+      background-color: var(--yellow);
+      border-radius: 0.5rem;
+      top: 2rem;
+      left: 10%;
+      height: 4.8rem;
+      width: 80%;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1.8rem;
+      line-height: 4.8rem;
+      font-family: var(--sans);
+      font-weight: normal;
+      letter-spacing: 1px;
+   }
+
+   &:last-child {
+      border-left: 1px solid var(--grey);
+   }
+}
+
+.preview {
+   width: 95%;
+   height: calc(100vh - 14rem);
+   margin: 10rem 2.5% 0;
+   padding: 2rem 2.5% 4rem;
+   font-family: var(--sans);
+   font-size: 1.6rem;
+   line-height: 1.6;
+   color: var(--blue-dark);
+   overflow: auto;
+
+   & h1,
+   & h2,
+   & h3,
+   & h4,
+   & h5,
+   & h6 {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+   }
+
+   & h1 {
+      font-size: 2em;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid var(--grey);
+   }
+
+   & h2 {
+      font-size: 1.5em;
+   }
+
+   & h3 {
+      font-size: 1.2em;
+   }
+
+   & a {
+      color: #0366d6;
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+
+   & p {
+      margin-bottom: 1em;
+   }
+
+   & blockquote {
+      padding: 1em;
+      background-color: var(--modyellow);
+      border-left: 0.25em solid var(--blue);
+      margin-bottom: 1em;
+      border-radius: 0.5rem;
+
+      & p:last-child {
+         margin-bottom: 0;
+      }
+   }
+
+   & ul,
+   & ol {
+      padding-left: 2em;
+
+      & li + li {
+         margin-top: 0.25em;
+      }
+   }
+
+   & code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: var(--yellow);
+      border-radius: 3px;
+   }
+
+   & pre {
+      padding: 16px;
+      margin-bottom: 1.5em;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: var(--modyellow);
+      border-radius: 0.5rem;
+      word-wrap: normal;
+      border-left: 0.25em solid var(--yellow);
+
+      & > code {
+         padding: 0;
+         margin: 0;
+         font-size: 100%;
+         line-height: 1.5;
+         word-break: normal;
+         white-space: pre;
+         background: transparent;
+         border: 0;
+         display: inline;
+         max-width: auto;
+         overflow: visible;
+      }
+   }
+
+   & hr {
+      border: none;
+      border-bottom: 1px solid var(--grey);
+      margin: 1.5em auto;
+   }
+
+   & img {
+      margin-top: 1em;
+   }
+
+   & table {
+      border-collapse: collapse;
+      margin-bottom: 1em;
+
+      & td,
+      & th {
+         border: 1px solid var(--grey);
+         padding: 0.2em 0.4em;
+      }
+   }
+}

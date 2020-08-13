@@ -1,0 +1,120 @@
+class MarkdownPreviewer extends React.Component {
+   state = {
+      rawInput: placeholder
+   };
+
+   onChange(raw) {
+      this.setState({ rawInput: raw });
+   }
+
+   render() {
+      window.marked.setOptions({
+         breaks: true
+      });
+
+      return (
+         <div className="App">
+            <header className="sidebar">
+               <a href="https://reactjs.org/"><img src="https://cdn.worldvectorlogo.com/logos/react-native-firebase-1.svg"
+                  alt="markdown previewer logo"
+                  className="logo"
+               /></a>
+               <h1 className="brand">&nbsp;&nbsp;Markdown previewer for <a href="https://reactjs.org/">React</a></h1>
+            </header>
+
+            <div className="container">
+               
+               <h2 className="label">editor</h2>
+               <textarea
+                  name="editor"
+                  id="editor"
+                  value={this.state.rawInput}
+                  onChange={e => this.onChange(e.target.value)}
+               />
+            </div>
+
+            <article className="container">
+               <h2 className="label">preview</h2>
+               <div
+                  className="preview"
+                  id="preview"
+                  dangerouslySetInnerHTML={{
+                     __html: window.marked(this.state.rawInput)
+                  }}
+               />
+            </article>
+<footer className="bottombar" id="bottombar">
+  <div className="container-fluid">
+    <div class="row">
+      <div className="col-lg-6">
+        <small-2 id="credits"><a href="#" id="link">info@randandgalt.com</a></small-2>
+        <small id="credits"> | Rand & Galt Studio 2020 &copy;</small>
+      </div>      
+      <div class="col-lg-6 text-right">
+        <div class="mc">
+                  
+                  <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-codepen"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                </div>
+      </div>
+      </div>
+    </div>
+
+</footer>
+         </div>
+
+      );
+   }
+}
+
+const placeholder = `# Welcome to my React Markdown Previewer!
+
+## This is a sub-heading...
+### And here's some other cool stuff:
+  
+Heres some code, \`<div></div>\`, between 2 backticks.
+
+\`\`\`
+// this is multi-line code:
+
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
+  }
+}
+\`\`\`
+  
+You can also make text **bold**... whoa!
+Or _italic_.
+Or... wait for it... **_both!_**
+And feel free to go crazy ~~crossing stuff out~~.
+
+There's also [links](https://www.freecodecamp.com), and
+> Block Quotes!
+
+And if you want to get really crazy, even tables:
+
+Wild Header | Crazy Header | Another Header?
+------------ | ------------- | ------------- 
+Your content can | be here, and it | can be here....
+And here. | Okay. | I think we get it.
+
+- And of course there are lists.
+  - Some are bulleted.
+     - With different indentation levels.
+        - That look like this.
+
+
+1. And there are numbererd lists too.
+1. Use just 1s if you want! 
+1. But the list goes on...
+- Even if you use dashes or asterisks.
+* And last but not least, let's not forget embedded images:
+
+![React Logo w/ Text](https://mildaintrainings.com/wp-content/uploads/2017/11/react-logo.png)`;
+
+ReactDOM.render(<MarkdownPreviewer />, document.getElementById("root"));
